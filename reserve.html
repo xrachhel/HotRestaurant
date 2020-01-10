@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <title>Add to list</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+                <form>
+                        <div class="form-group">
+                            Name: 
+                            <input id="name" type="text" class="form-control" placeholder="Enter name">
+                        </div>
+                        <div class="form-group">
+                            Number of people: 
+                            <input id="people" type="text" class="form-control" placeholder="Enter number of people">
+                        </div>
+                        <div class="form-group">
+                            Phone Number:
+                            <input id="phone" type="text" class="form-control" placeholder="Enter phone number">
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="addBtn">Submit</button>
+                    </form>
+
+                    <div class="text-center">
+                            <a class="btn btn-secondary btn-lg" href="/" role="button">Home</a>
+                    </div>
+        </div>
+       
+
+    </div>
+
+    <script type = "text/javascript">
+    $("#addBtn").on("click", function(event){
+        event.preventDefault()
+        var newTable = {
+            name: $("#name").val().trim(),
+            people: $("#people").val().trim(),
+            phone: $("#phone").val().trim()
+        }
+
+        $.post("/api/tables/new", newTable).then(function(data){
+            console.log(data)
+            alert("Adding Reservation")
+        })
+    })
+    </script>
+    
+</body>
+
+</html>
