@@ -2,7 +2,7 @@
 
 Restaurant scheduling app that helps schedule reservation requests. The restaurant has only 5 tables available, so first five requests get a reservation and every request after that is sent to the waiting list. Built with Node and Express with jQuery.
 
-![Hot Restaurant Image](Images/HotRestaurant.png)
+![Hot Restaurant Image](Images/demo.png)
 
 ## Deployed Link
 
