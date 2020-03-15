@@ -30,43 +30,39 @@ var waitlist = []
 
 app.get("/", function(req, res){
     res.sendFile(path.join(__dirname, "index.html"))
-})
+});
 
 app.get("/reserve", function(req, res){
     res.sendFile(path.join(__dirname, "reserve.html"))
-})
+});
 
 app.get("/tables", function(req, res){
     res.sendFile(path.join(__dirname, "tables.html"))
-})
+});
 
 // Display all tables
 app.get("/api/tables", function(req, res){
     return res.json(tables)
-})
+});
 
+// Display waitlist
 app.get("/api/waitlist", function(req, res){
     return res.json(waitlist)
-})
+});
 
 // Create New Reservation
 app.post("/api/tables/new", function(req, res){
     var newTable = req.body;
-    console.log(newTable)
     if(tables.length < 5){
         tables.push(newTable)
     }
     else{
         waitlist.push(newTable)
     }
-    console.log(tables)
-    console.log(waitlist)
     res.json(newTable)
-})
-
-
+});
 
 // Listen
 app.listen(PORT, function(){
     console.log("App listening on PORT " + PORT)
-})
+});

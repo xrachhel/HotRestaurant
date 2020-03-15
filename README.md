@@ -1,16 +1,43 @@
-# HotRestaurant
+# Hot Restaurant
 
-* Description: Basic app demonstrating Node and Express with jQuery. Overall purpose is to help schedule reservation requests. Restaurant has just 5 tables available. First five requests get a reservation, every request after that is sent to the waiting list.
-* Live Demo: <https://hot-restaurant-fsf.herokuapp.com/>
+Restaurant scheduling app that helps schedule reservation requests. The restaurant has only 5 tables available, so first five requests get a reservation and every request after that is sent to the waiting list. Built with Node and Express with jQuery.
 
 ![Hot Restaurant Image](Images/HotRestaurant.png)
 
-## Notes
+## Deployed Link
 
-* You will NOT need a MySQL Database for this exercise.
-* Current app doesn't have admin handling. We'll deal with that at a later time.
-* Don't separate the JavaScript from the HTML in the client-side code. (i.e. Don't use external JavaScript. If you do, you will need an additional line of code to configure the express server to know where the JavaScript is).
+[See Live Site](https://hot-restaurant-ry.herokuapp.com/)
 
-## Good luck! Don't stress out
+## Technologies Used
 
-* Spend some time trying to build exposure. But don't get overwhelmed. We'll have plenty of time to come back to this.
+* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML): used for structuring and creating elements on the DOM
+* [Bootstrap](https://getbootstrap.com/): open source toolkit for HTML, CSS, and JS
+* [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript): used to create responsive, interactive elements on the page
+* [jquery](https://jquery.com/): JavaScript library to simplify HTML DOM traversal
+* [Node.js](https://developer.mozilla.org/en-US/docs/Web/API/Node): JavaScript runtime, allows users to run JavaScript on the server
+* [Express](https://expressjs.com/): Web framwork for Node.js
+
+## Code snippet 
+```
+app.post("/api/tables/new", function(req, res){
+    var newTable = req.body;
+    if(tables.length < 5){
+        tables.push(newTable)
+    }
+    else{
+        waitlist.push(newTable)
+    }
+    res.json(newTable)
+});
+```
+
+This POST route was used to push the new reservation either into the tables or the waitlist array, depending on weather the tables list was full (5). 
+
+
+## Authors
+
+**Rachel Yeung**
+* [Portfolio](https://rachelyeung.herokuapp.com/)
+* [Github](https://github.com/xrachhel)
+* [LinkedIn](https://www.linkedin.com/in/rachel-yeung-814986159/)
+
